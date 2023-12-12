@@ -113,7 +113,7 @@ int main()
 	
 	int opcao = 0; //Definindo variáveis
 	int laco = 1;
-	
+	char a;
 	for(laco=1; laco=1;){
 		
 		system("cls");
@@ -129,10 +129,22 @@ int main()
 		scanf("%d", &opcao);//armazenando a escolha do usuário
 		
 		system("cls");
-		
 		switch(opcao){
 			case 1:
 				registro();
+				while(1)//Loop para continuar cadastrando usuário caso não aperte S ou s
+				{
+					printf("\nDeseja continuar? S/N ");
+					scanf("%s", &a);
+					if (a == 'S' || a == 's') {
+				    	printf("\nVocê optou por continuar\n");
+				    	registro();
+				  	} 
+					else {
+				    	printf("\nVocê optou por não continuar\n");
+				    	break;
+				  	}
+			  	}
 				break;
 			case 2:
 				consulta();
@@ -142,6 +154,7 @@ int main()
 				break;
 			case 4:
 				return 0;
+				break;
 			default:
 				printf("Essa opção não está disponível!\n");
 				system("pause");
